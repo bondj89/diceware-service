@@ -1,6 +1,6 @@
 package edu.cnm.deepdive.dicewareservice.model.entity;
 
-import javax.persistence.CascadeType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,13 +13,14 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.lang.NonNull;
 
-@Entity()
+@Entity
+@JsonIgnoreProperties({"id", "passphrase"})
 public class Word {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "word_id", nullable = false, updatable = false)
-  private long id;
+  private Long id; // changed from long to Long using Refactor --> Type Migration
 
   @Column(nullable = false, updatable = false)
   private String word;
@@ -30,7 +31,7 @@ public class Word {
   @OnDelete(action = OnDeleteAction.CASCADE)
   private Passphrase passphrase;
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 

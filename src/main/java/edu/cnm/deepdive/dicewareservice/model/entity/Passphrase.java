@@ -3,6 +3,7 @@ package edu.cnm.deepdive.dicewareservice.model.entity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class Passphrase {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "passphrase_id", updatable = false, nullable = false)
-  private long id;
+  private Long id;
 
   @NonNull
   @CreationTimestamp
@@ -30,14 +31,14 @@ public class Passphrase {
 private Date created;
 
   @NonNull
-  @Column(nullable = false, length = 20, unique = true)
+  @Column(name = "passkey", nullable = false, length = 20, unique = true)
   private String key;
 
-  @OneToMany(mappedBy = "passphrase")
+  @OneToMany(mappedBy = "passphrase", cascade = CascadeType.PERSIST)
   @OrderBy("word_id ASC")
   private List<Word> words = new ArrayList<>();
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
