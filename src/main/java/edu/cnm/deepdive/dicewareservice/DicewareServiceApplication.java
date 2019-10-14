@@ -22,14 +22,6 @@ public class DicewareServiceApplication {
     return new SecureRandom();
   }
 
-  @Bean
-  public List<String> words(ResourceBundle bundle) {
-    List<String> words = new LinkedList<>();
-    for (String key : bundle.keySet()) {
-      words.add(bundle.getString(key));
-    }
-    return words;
-  }
 
   @Bean
   public ResourceBundle bundle() {

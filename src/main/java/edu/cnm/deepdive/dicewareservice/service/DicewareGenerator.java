@@ -16,9 +16,9 @@ public class DicewareGenerator implements PassphraseGenerator {
 
 
   @Autowired // Just for annotation.
-  public DicewareGenerator(Random rng, List<String> words) {
+  public DicewareGenerator(Random rng, WordProvider provider) {
     this.rng = rng;
-    this.words = new ArrayList<>(words);
+    this.words = new ArrayList<>(provider.words());
   }
 
 
