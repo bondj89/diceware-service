@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Pattern;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.lang.NonNull;
 
@@ -28,13 +29,14 @@ public class Passphrase {
   @CreationTimestamp
   @Temporal(TemporalType.TIMESTAMP)
   @Column(nullable = false, updatable = false)
-private Date created;
+  private Date created;
 
   @NonNull
   @Column(name = "passkey", nullable = false, length = 20, unique = true)
+  @Pattern(regexp = "^\\D.*")
   private String key;
 
-  @OneToMany(mappedBy = "passphrase", cascade = CascadeType.PERSIST)
+  @OneToMany(mappedBy = "passphrase", cascade = CascadeType.ALL)
   @OrderBy("word_id ASC")
   private List<Word> words = new ArrayList<>();
 

@@ -8,4 +8,7 @@ public interface PassphraseRepository extends CrudRepository<Passphrase, Long> {
 
   Optional<Passphrase> getFirstByKey(String key);
 
+  Iterable<Passphrase> getAllByOrderByIdAsc();
+
+
 }
