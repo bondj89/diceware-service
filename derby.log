@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Wed Oct 16 14:40:45 MDT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016d-d64d-2edf-000008986148 
+Fri Oct 18 09:21:43 MDT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016d-df75-cf87-0000084f81d0 
 on database directory /Users/Bond/Desktop/bootcamp/projects/diceware-service/passphrase_db with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/Users/Bond/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Amazon.com Inc.
